@@ -30,7 +30,7 @@ FLARE/
 
 1. O Launcher procura por subbpastas dentro da pasta `Apps/`.
 
-2. O exe do programa ou jogo **deve chamar-se obrigatorariamente `APP.exe`.
+2. O exe do programa ou jogo **deve chamar-se obrigatorariamente** `APP.exe`.
 
 3. O launcher define o `WorkingDiretorectory` para a pasta especifica do app, garantindo que o programa encontre as suas Próprias dependencias e ficheiros locais.
 
