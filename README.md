@@ -8,6 +8,8 @@ esse projeto está a ser desenvolvido em **C# (.NET)** com o obijetivo de centra
 
 A versão atual é uma **versão console (linha de comando)** criada para estruturar e validar toda a Lógica de manipulação de ficheiros (`System.IO`) e inicialização de prosessos (`System.Diagnostics`). O próximo passo será a criação de uma UI (interface grafica)
 
+[Disponivel no Itch.io](https://del-sfs.itch.io/flare/)
+
 ## 🕹️ Como Funciona a estrutura de pastas
 
 O FLARE funciona detetando automaticamente as subpastas dentro do Diretório `Apps/`.
