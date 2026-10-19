@@ -4,9 +4,10 @@ O **FLARE** é um Launcher de App e jogos portáteis 100% offline para Windows, 
 
 ## ❓ Sobre o projeto
 
-esse projeto está a ser desenvolvido em **C# (.NET)** e **Godot** com o objetivo de centralizar e execultar programas de forma práica.
+esse projeto está a ser desenvolvido em **C# (.NET)** e **Godot** com o objetivo de centralizar e abrir programas de forma práica.
 
-A versão atual é uma **versão console (linha de comando)** criada para estruturar e validar toda a Lógica de manipulação de ficheiros (`System.IO`) e inicialização de prosessos (`System.Diagnostics`). O próximo passo será a criação de uma UI (interface grafica)
+Ele é feito para quem tem bastante programas portateis ou .exe soltos, o FLARE é a solução.
+Ou só para organizar programas seus mesmo :3
 
 **[Disponivel no Itch.io](https://del-sfs.itch.io/flare/)**
 
