@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://dd3asuwsy0yj5"]
+
+[ext_resource type="Script" uid="uid://50f8uq0wwb2y" path="res://scripts/launcher.gd" id="1_ut831"]
+
+[node name="Launcher" type="Control" unique_id=1522290054]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ut831")
+
+[node name="Panel" type="Panel" parent="." unique_id=2045707386]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=367799200]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=2086364907]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1024954775]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "=== FLARE ==="
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer" unique_id=1484307823]
+custom_minimum_size = Vector2(200, 500)
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/ScrollContainer" unique_id=1806809008]
+custom_minimum_size = Vector2(180, 480)
+layout_mode = 2
