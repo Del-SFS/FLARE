@@ -1,10 +1,36 @@
 extends Control
 
 @onready var lista_de_apps = $MarginContainer/VBoxContainer/ScrollContainer/GridContainer
+@onready var botao_reload = $MarginContainer/VBoxContainer/Reload
+
+var caminho_dados = ""
+var dados_apps = {}
 
 func _ready() -> void:
-	carregar_aplicativos()
+	botao_reload.pressed.connect(carregar_aplicativos)
 	
+	var caminho_base = OS.get_executable_path().get_base_dir()
+	if OS.has_feature("editor"):
+		caminho_base = ProjectSettings.globalize_path("res://")
+	
+	caminho_dados = caminho_base + "/dados.json"
+	carregar_dados_json()
+	carregar_aplicativos()
+
+func carregar_dados_json() -> void:
+	if FileAccess.file_exists(caminho_dados):
+		var arquivo = FileAccess.open(caminho_dados, FileAccess.READ)
+		var texto = arquivo.get_as_text()
+		var resultado = JSON.parse_string(texto)
+		if resultado is Dictionary:
+			dados_apps = resultado
+
+func salvar_dados_json() -> void:
+	var arquivo = FileAccess.open(caminho_dados, FileAccess.WRITE)
+	if arquivo:
+		arquivo.store_string(JSON.stringify(dados_apps, "\t"))
+
+
 func carregar_aplicativos() -> void:
 	for child in lista_de_apps.get_children():
 		child.queue_free()
@@ -39,6 +65,11 @@ func verificar_e_adicionar_app(caminho_pasta: String, nome_pasta: String) -> voi
 		criar_card_app(nome_pasta, caminho_exe, caminho_img, caminho_pasta)
 		
 func criar_card_app(nome: String, exe_path: String, img_path: String, work_dir: String) -> void:
+	
+	var vezes_aberto = 0
+	if dados_apps.has(nome):
+		vezes_aberto = dados_apps[nome].get("execucoes", 0)
+	
 	var botao = Button.new()
 	botao.text = " " + nome
 	botao.custom_minimum_size = Vector2(200, 60)
@@ -51,12 +82,18 @@ func criar_card_app(nome: String, exe_path: String, img_path: String, work_dir: 
 			botao.icon = textura
 			botao.expand_icon = true
 	
-	botao.pressed.connect(func(): rodar_app(exe_path, work_dir))
-	
+	botao.pressed.connect(func(): rodar_app(nome, exe_path, work_dir))
 	lista_de_apps.add_child(botao)
 	
-func rodar_app(exe_path: String, work_path: String) -> void:
+func rodar_app(nome: String, exe_path: String, work_path: String) -> void:
 	print("Iniciando: ", exe_path)
+	
+	if not dados_apps.has(nome):
+		dados_apps[nome] = {}
+		
+	var atual = dados_apps[nome].get("execucoes", 0)
+	dados_apps[nome]["execucoes"] = atual + 1
+	salvar_dados_json()
 	
 	var pid = OS.create_process(exe_path, [], false)
 	if pid == -1:

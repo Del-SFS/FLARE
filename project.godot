@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="FLARE"
+config/tags=PackedStringArray("gdscript")
 run/main_scene="uid://dd3asuwsy0yj5"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 boot_splash/image="uid://clw114bwpafqe"

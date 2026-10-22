@@ -33,7 +33,7 @@ theme_override_constants/margin_bottom = 10
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=2086364907]
 layout_mode = 2
-theme_override_constants/separation = 10
+theme_override_constants/separation = 12
 
 [node name="TitleLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1024954775]
 layout_mode = 2
@@ -46,5 +46,10 @@ custom_minimum_size = Vector2(200, 500)
 layout_mode = 2
 
 [node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/ScrollContainer" unique_id=1806809008]
-custom_minimum_size = Vector2(180, 480)
+custom_minimum_size = Vector2(1130, 480)
 layout_mode = 2
+columns = 5
+
+[node name="Reload" type="Button" parent="MarginContainer/VBoxContainer" unique_id=836373558]
+layout_mode = 2
+text = "Reload"
